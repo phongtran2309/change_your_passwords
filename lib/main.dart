@@ -22,35 +22,38 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     const Color buttonColor = Color(0xff1E60C0);
 
     return MaterialApp(
-      title: 'Reset passwords',
-      debugShowCheckedModeBanner: false,
-      // Navigator operation requested with a context that does not include a Navigator.
-        // add scaffold in builder
-      home: Builder (
+        title: 'Reset passwords',
+        debugShowCheckedModeBanner: false,
+        // Navigator operation requested with a context that does not include a Navigator.
+        // add scaffold in builder too add Navigator
+        home: Builder(
           builder: (BuildContext context) {
             return Scaffold(
               body: Container(
                 margin: const EdgeInsets.only(top: 40, left: 17, right: 17),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 66, left: 18),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: labelColor,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 60, right: 18),
-                        child: Image.asset(
-                          'assets/images/logo_finbox.png',
-                          width: 99,
-                          height: 26,
-                        ),
-                      ),
-                    ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(top: 66, left: 18),
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: labelColor,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 60, right: 18),
+                            child: Image.asset(
+                              'assets/images/logo_finbox.png',
+                              width: 99,
+                              height: 26,
+                            ),
+                          ),
+                        ]),
                     // TODO: lam tiep
                     const SizedBox(height: 34),
 
@@ -75,135 +78,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       ),
                     ),
                     const SizedBox(height: 32),
-                    RichText(
-                        text: const TextSpan(
-                          text: 'Mật khẩu',
-                          style: TextStyle(
-                            color: Color(0xff777777),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: '*',
-                                style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                ))
-                          ],
-                        )),
-                    const SizedBox(height: 14),
-                    TextField(
-                      obscureText: _obscureText,
-                      decoration: InputDecoration(
-                          suffixIcon: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.only(right: 9.0),
-                                child: Text(
-                                  _obscureText ? 'Hiển thị' : 'Ẩn',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(right: 14.29),
-                                child: IconButton(
-                                  icon: Icon(
-                                    _obscureText
-                                        ? Icons.visibility_outlined
-                                        : Icons.visibility_off_outlined,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _obscureText = !_obscureText;
-                                    });
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6.0),
-                          ),
-                          hintText: 'Nhập mật khẩu của bạn',
-                          contentPadding: const EdgeInsets.only(
-                            left: 30.0,
-                            top: 18.0,
-                            bottom: 15.0,
-                          ),
-                          hintStyle: const TextStyle(color: Color(0xffCCCFD4))),
-                    ),
-                    const SizedBox(height: 16),
-                    RichText(
-                        text: const TextSpan(
-                          text: 'Xác nhận mật khẩu',
-                          style: TextStyle(
-                            color: Color(0xff777777),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: '*',
-                                style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                ))
-                          ],
-                        )),
-                    const SizedBox(height: 14),
-                    TextField(
-                      obscureText: _obscureTextConfirm,
-                      decoration: InputDecoration(
-                          suffixIcon: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.only(right: 9.0),
-                                child: Text(
-                                  _obscureTextConfirm ? 'Hiển thị' : 'Ẩn',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(right: 14.29),
-                                child: IconButton(
-                                  icon: Icon(
-                                    _obscureTextConfirm
-                                        ? Icons.visibility_outlined
-                                        : Icons.visibility_off_outlined,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _obscureTextConfirm = !_obscureTextConfirm;
-                                    });
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6.0),
-                          ),
-                          hintText: 'Xác nhận mật khẩu của bạn',
-                          contentPadding: const EdgeInsets.only(
-                            left: 30.0,
-                            top: 18.0,
-                            bottom: 15.0,
-                          ),
-                          hintStyle: const TextStyle(color: Color(0xffCCCFD4))),
-                    ),
-                    const SizedBox(height: 32),
-
+                    _generateTextFieldPassword(),
+                    _generateTextFieldConfirmPassword(),
                     SizedBox(
                         width: double.infinity,
                         height: 50,
@@ -214,13 +90,15 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const SuccessfulConfirmationPage()),
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SuccessfulConfirmationPage()),
                             );
                           },
                           child: const Text(
                             'XÁC NHẬN',
-                            style:
-                            TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w600),
                           ),
                         )),
                   ],
@@ -228,7 +106,166 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               ),
             );
           },
-      )
+        ));
+  }
+
+  Widget _generateTextFieldConfirmPassword() {
+    return SizedBox(
+      width: double.infinity,
+      height: 117.0,
+      child: Scaffold(
+        body: Column(
+          children: [
+            Container(
+              alignment: Alignment.topLeft,
+              child: RichText(
+                text: const TextSpan(
+                text: 'Xác nhận mật khẩu',
+                style: TextStyle(
+                  color: Color(0xff777777),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ))
+                ],
+              )),
+            ),
+            const SizedBox(height: 14),
+            TextField(
+              obscureText: _obscureTextConfirm,
+              decoration: InputDecoration(
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(right: 9.0),
+                        child: Text(
+                          _obscureTextConfirm ? 'Hiển thị' : 'Ẩn',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(right: 14.29),
+                        child: IconButton(
+                          icon: Icon(
+                            _obscureTextConfirm
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscureTextConfirm = !_obscureTextConfirm;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  hintText: 'Xác nhận mật khẩu của bạn',
+                  contentPadding: const EdgeInsets.only(
+                    left: 30.0,
+                    top: 18.0,
+                    bottom: 15.0,
+                  ),
+                  hintStyle: const TextStyle(color: Color(0xffCCCFD4))),
+            ),
+            const SizedBox(height: 32),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _generateTextFieldPassword() {
+    return SizedBox(
+      width: double.infinity,
+      height: 101.0,
+      child: Scaffold(
+        body: Column(
+          children: [
+            Container(
+              alignment: Alignment.topLeft,
+              child: RichText(
+                  text: const TextSpan(
+                text: 'Mật khẩu',
+                style: TextStyle(
+                  color: Color(0xff777777),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: '*',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ))
+                ],
+              )),
+            ),
+            const SizedBox(height: 14),
+            TextField(
+              obscureText: _obscureText,
+              decoration: InputDecoration(
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(right: 9.0),
+                        child: Text(
+                          _obscureText ? 'Hiển thị' : 'Ẩn',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(right: 14.29),
+                        child: IconButton(
+                          icon: Icon(
+                            _obscureText
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  hintText: 'Nhập mật khẩu của bạn',
+                  contentPadding: const EdgeInsets.only(
+                    left: 30.0,
+                    top: 18.0,
+                    bottom: 15.0,
+                  ),
+                  hintStyle: const TextStyle(color: Color(0xffCCCFD4))),
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -249,36 +286,35 @@ class _SuccessfulConfirmationPageState
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(
-                top: 158.0,
-                left: 120.0,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 158.0),
+                child: Image.asset(
+                  'assets/images/success.png',
+                  height: 135,
+                  width: 135,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(
-                        top: 50.0, right: 90.0),
-                    child: Image.asset(
-                      'assets/images/success.png',
-                      height: 135,
-                      width: 135,
-                    ),
+              Container(
+                padding: const EdgeInsets.only(top: 28.0),
+                child: const Text(
+                  'Đổi mật khẩu thành công',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Container(
-                    child: const Text(
-                      'Đổi mật khẩu thành công',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 470.0),
+                child: SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: buttonColor,
                     ),
@@ -293,10 +329,10 @@ class _SuccessfulConfirmationPageState
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
